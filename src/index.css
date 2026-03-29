@@ -1,0 +1,259 @@
+/* ─── Phiris Brand Tokens ────────────────────────────────────────── */
+:root {
+  --phiris-dark:        #1C2A2A;
+  --phiris-teal-dark:   #155F5F;
+  --phiris-teal:        #1E8484;
+  --phiris-teal-mid:    #3AABAB;
+  --phiris-teal-light:  #6FC8C8;
+  --phiris-mint:        #A8DEDE;
+  --phiris-gold:        #C8A04A;
+  --phiris-yellow:      #EDD94E;
+  --phiris-cream:       #F7F5F0;
+  --phiris-white:       #FFFFFF;
+  --phiris-text:        #1C2A2A;
+  --phiris-text-muted:  #5A7070;
+  --phiris-border:      #D4E5E5;
+  --phiris-error:       #E05555;
+  --phiris-success:     #3AABAB;
+
+  --gradient-primary: linear-gradient(90deg, #155F5F 0%, #1E8484 50%, #6FC8C8 100%);
+  --gradient-dark:    linear-gradient(135deg, #0D1A1A 0%, #155F5F 100%);
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(21,95,95,0.12);
+  --shadow-lg: 0 8px 32px rgba(21,95,95,0.18);
+
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--phiris-cream);
+  color: var(--phiris-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font); }
+img { max-width: 100%; display: block; }
+input, textarea, select {
+  font-family: var(--font);
+  font-size: 1rem;
+}
+
+/* ─── Utility Classes ────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--phiris-teal);
+  border: 2px solid var(--phiris-teal);
+}
+.btn-outline:hover { background: var(--phiris-teal); color: white; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--phiris-text-muted);
+  border: 2px solid var(--phiris-border);
+}
+.btn-ghost:hover { border-color: var(--phiris-teal-mid); color: var(--phiris-teal); }
+
+.btn-danger {
+  background: var(--phiris-error);
+  color: white;
+}
+
+.btn-sm { padding: 10px 20px; font-size: 0.875rem; }
+.btn-lg { padding: 18px 40px; font-size: 1.125rem; border-radius: var(--radius-lg); }
+.btn-full { width: 100%; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ─── Form Elements ──────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--phiris-text);
+  letter-spacing: 0.02em;
+}
+
+.form-input {
+  padding: 13px 16px;
+  border: 2px solid var(--phiris-border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  color: var(--phiris-text);
+  background: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--phiris-teal-mid);
+  box-shadow: 0 0 0 3px rgba(58,171,171,0.15);
+}
+.form-input.error { border-color: var(--phiris-error); }
+.form-input::placeholder { color: #AAC0C0; }
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A7070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--phiris-text-muted);
+}
+
+.form-error {
+  font-size: 0.8rem;
+  color: var(--phiris-error);
+  font-weight: 500;
+}
+
+/* ─── Card ───────────────────────────────────────────────────────── */
+.card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--phiris-border);
+}
+
+.card-sm {
+  padding: 24px;
+  border-radius: var(--radius-md);
+}
+
+/* ─── Tags / Badges ──────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tag-teal { background: rgba(58,171,171,0.12); color: var(--phiris-teal); }
+.tag-gold { background: rgba(200,160,74,0.12); color: var(--phiris-gold); }
+.tag-red  { background: rgba(224,85,85,0.12); color: var(--phiris-error); }
+.tag-dark { background: var(--phiris-dark); color: white; }
+
+/* ─── Alert ──────────────────────────────────────────────────────── */
+.alert {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.alert-error   { background: rgba(224,85,85,0.1); color: #C03030; border: 1px solid rgba(224,85,85,0.25); }
+.alert-success { background: rgba(58,171,171,0.1); color: var(--phiris-teal); border: 1px solid rgba(58,171,171,0.25); }
+.alert-info    { background: rgba(21,95,95,0.08); color: var(--phiris-teal-dark); border: 1px solid rgba(21,95,95,0.2); }
+
+/* ─── Divider ────────────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: var(--phiris-text-muted);
+  font-size: 0.875rem;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--phiris-border);
+}
+
+/* ─── Loading Spinner ────────────────────────────────────────────── */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.spinner-teal {
+  border-color: rgba(58,171,171,0.2);
+  border-top-color: var(--phiris-teal);
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Page Shell ─────────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+  padding: 40px 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .card { padding: 24px 20px; border-radius: var(--radius-md); }
+  .btn-lg { padding: 16px 32px; font-size: 1rem; }
+  .container { padding: 0 16px; }
+  .container-narrow { padding: 0 16px; }
+}

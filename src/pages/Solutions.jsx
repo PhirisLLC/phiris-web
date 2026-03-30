@@ -143,7 +143,7 @@ export default function Solutions() {
   const isMobile = useIsMobile()
 
   return (
-    <div className="page" style={{ background: '#F7F5F0' }}>
+    <div className="page" style={{ background: '#F7F5F0', overflowX: 'hidden' }}>
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       <Header />
 

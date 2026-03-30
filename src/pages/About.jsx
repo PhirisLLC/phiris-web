@@ -85,7 +85,7 @@ export default function About() {
   }
 
   return (
-    <div style={{ background: '#0D1A1A', minHeight: '100vh' }}>
+    <div style={{ background: '#0D1A1A', minHeight: '100vh', overflowX: 'hidden' }}>
       <Header variant="dark" />
 
       {/* Hero */}

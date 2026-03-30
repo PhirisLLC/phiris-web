@@ -49,7 +49,7 @@ const WHY_IT_MATTERS = [
 export default function Landing() {
   const isMobile = useIsMobile()
   return (
-    <div style={{ background: '#0D1A1A', minHeight: '100vh' }}>
+    <div style={{ background: '#0D1A1A', minHeight: '100vh', overflowX: 'hidden' }}>
       <Header variant="dark" />
 
       {/* Hero */}
@@ -72,11 +72,11 @@ export default function Landing() {
                 Phiris lets emergency responders instantly identify you and access your
                 critical medical information — even when you can't speak for yourself.
               </p>
-              <div style={styles.heroCTA}>
-                <Link to="/register" className="btn btn-primary btn-lg">
+              <div style={{ ...styles.heroCTA, flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'stretch' : 'center' }}>
+                <Link to="/register" className="btn btn-primary btn-lg" style={isMobile ? { textAlign: 'center' } : {}}>
                   Enroll as a Patient
                 </Link>
-                <Link to="/responder/register" className="btn btn-ghost btn-lg" style={{ color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.2)' }}>
+                <Link to="/responder/register" className="btn btn-ghost btn-lg" style={{ color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.2)', ...(isMobile ? { textAlign: 'center' } : {}) }}>
                   I'm a First Responder / HCP
                 </Link>
               </div>
@@ -425,7 +425,7 @@ export default function Landing() {
           <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem' }}>
             © {new Date().getFullYear()} Phiris LLC. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: isMobile ? 12 : 20, alignItems: 'center', flexWrap: 'wrap' }}>
             <Link to="/solutions" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', textDecoration: 'none' }}>For Organizations</Link>
             <Link to="/about" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', textDecoration: 'none' }}>About</Link>
             <Link to="/legal" style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', textDecoration: 'none' }}>Privacy</Link>
@@ -550,7 +550,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     gap: 16,
-    flexWrap: 'nowrap',
+    flexWrap: 'wrap',
     alignItems: 'center',
   },
   heroOrb1: {
@@ -579,7 +579,7 @@ const styles = {
   },
   statsGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
     gap: 24,
     textAlign: 'center',
   },
@@ -665,7 +665,7 @@ const styles = {
   whyTitle: { fontSize: '1rem', fontWeight: 700, color: '#1C2A2A', marginBottom: 8 },
   whyBody: { fontSize: '0.875rem', lineHeight: 1.65, color: '#5A7070' },
   ctaSection: {
-    padding: '100px 0',
+    padding: 'clamp(56px, 8vw, 100px) 0',
     background: 'linear-gradient(160deg, #0D2828 0%, #0D1A1A 100%)',
     position: 'relative',
     overflow: 'hidden',

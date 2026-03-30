@@ -34,7 +34,7 @@ const HOW_IT_WORKS = [
   {
     step: '03',
     title: 'You\'re Identified',
-    body: 'A secure facial scan matches you in seconds — no wallet, no ID card, no delay. Your critical info is right there.',
+    body: 'A secure facial scan matches you in seconds. No wallet, no ID card, no delay. Your critical info is right there.',
     icon: 'shield-check',
   },
 ]
@@ -70,7 +70,7 @@ export default function Landing() {
               </p>
               <p style={styles.heroSubtitle}>
                 Phiris lets emergency responders instantly identify you and access your
-                critical medical information — even when you can't speak for yourself.
+                critical medical information, even when you can't speak for yourself.
               </p>
               <div style={{ ...styles.heroCTA, flexDirection: 'row', alignItems: 'center', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
                 <Link to="/register" className="btn btn-primary btn-lg">
@@ -278,8 +278,8 @@ export default function Landing() {
               {
                 img: 'https://images.pexels.com/photos/8413176/pexels-photo-8413176.jpeg?auto=compress&cs=tinysrgb&w=600',
                 tag: 'The Chronic Condition Patient',
-                headline: '"Every ER visit, I start from scratch — hoping someone reads my chart in time."',
-                body: 'Severe allergies. Type 1 diabetes. A heart condition. Phiris surfaces what matters most, instantly — before a well-meaning mistake becomes a dangerous one.',
+                headline: '"Every ER visit, I start from scratch. I just hope someone reads my chart in time."',
+                body: 'Severe allergies. Type 1 diabetes. A heart condition. Phiris surfaces what matters most, instantly. Before a well-meaning mistake becomes a dangerous one.',
                 stat: '52.9% of respondents',
                 statLabel: 'want doctors to instantly know their allergies and conditions',
                 accent: '#D4A847',
@@ -288,7 +288,7 @@ export default function Landing() {
                 img: 'https://images.pexels.com/photos/32437427/pexels-photo-32437427.jpeg?auto=compress&cs=tinysrgb&w=600',
                 tag: 'The Unconscious Patient',
                 headline: '"I could not speak. They did not know my blood type, my allergies, or who to call."',
-                body: 'Thousands of patients arrive at emergency rooms each year unable to communicate. Phiris speaks for you — your identity, your medical history, your emergency contacts — instantly.',
+                body: 'Thousands of patients arrive at emergency rooms each year unable to communicate. Phiris speaks for you: your identity, your medical history, your emergency contacts. Instantly.',
                 stat: '83.7% of respondents',
                 statLabel: 'said they would enroll specifically to protect themselves when unconscious',
                 accent: '#C0392B',
@@ -297,7 +297,7 @@ export default function Landing() {
                 img: 'https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=600&q=80&fit=crop',
                 tag: 'The Solo Traveler',
                 headline: '"I travel alone. If something happened far from home, would anyone know who I am?"',
-                body: 'Whether you are across the country or across the world, Phiris ensures that the ER in any city has what they need — your identity, your history, and your people.',
+                body: 'Whether you are across the country or across the world, Phiris ensures that the ER in any city has what they need: your identity, your history, and your people.',
                 stat: '83.5% of respondents',
                 statLabel: 'said they would download the app for peace of mind',
                 accent: '#3498DB',
@@ -306,7 +306,7 @@ export default function Landing() {
                 img: 'https://images.pexels.com/photos/8500421/pexels-photo-8500421.jpeg?auto=compress&cs=tinysrgb&w=600',
                 tag: 'The Child at Sports, School & Camp',
                 headline: '"My son plays travel baseball. If something happened at practice, would they know to call me?"',
-                body: 'Parents can enroll their children in Phiris so coaches, camp counselors, school nurses, and first responders can instantly access a childs allergies, conditions, medications, and parent contact info — even when mom or dad is not there.',
+                body: 'Parents can enroll their children in Phiris so coaches, camp counselors, school nurses, and first responders can instantly access a child\'s allergies, conditions, medications, and parent contact info, even when mom or dad is not there.',
                 stat: '57% of parents',
                 statLabel: 'worry about their childs medical info being accessible in an emergency away from home',
                 accent: '#27AE60',
@@ -410,7 +410,7 @@ export default function Landing() {
             It takes less than 5 minutes to enroll. It could save your life.
           </p>
           <Link to="/register" className="btn btn-primary btn-lg">
-            Create Your Profile — It's Free
+            Create Your Profile. It's Free.
           </Link>
         </div>
         <div style={styles.heroOrb1} />

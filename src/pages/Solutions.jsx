@@ -29,12 +29,12 @@ const SOLUTIONS = [
       '8–12% of hospital medical records are duplicates',
     ],
     benefits: [
-      { icon: 'trending-up',  title: 'Revenue Recovery',  body: 'Eliminate denied claims from misidentification — recovering up to $17.4M annually per hospital.' },
+      { icon: 'trending-up',  title: 'Revenue Recovery',  body: 'Eliminate denied claims from misidentification, recovering up to $17.4M annually per hospital.' },
       { icon: 'zap',          title: 'Faster Admissions', body: 'Instant biometric ID reduces registration time and eliminates manual record-matching workflows.' },
-      { icon: 'heart-pulse',  title: 'Better Patient Care', body: 'Responders and staff access a complete, verified health profile — allergies, medications, conditions — immediately.' },
+      { icon: 'heart-pulse',  title: 'Better Patient Care', body: 'Responders and staff access a complete, verified health profile including allergies, medications, and conditions. Immediately.' },
       { icon: 'shield',       title: 'Reduced Liability', body: 'Fewer wrong-patient errors means fewer adverse events, malpractice claims, and regulatory investigations.' },
     ],
-    quote: '"Patient misidentification is one of the most significant — and preventable — sources of harm in healthcare today."',
+    quote: '"Patient misidentification is one of the most significant and preventable sources of harm in healthcare today."',
     quoteSource: '— Agency for Healthcare Research and Quality (AHRQ)',
   },
   {
@@ -51,10 +51,10 @@ const SOLUTIONS = [
       'Average victim spends 210 hours and $13,500 resolving fraud',
     ],
     benefits: [
-      { icon: 'lock',         title: 'Fraud Prevention', body: 'Biometric verification ensures the person receiving care is the actual policyholder — eliminating impersonation fraud at the point of service.' },
+      { icon: 'lock',         title: 'Fraud Prevention', body: 'Biometric verification ensures the person receiving care is the actual policyholder, eliminating impersonation fraud at the point of service.' },
       { icon: 'bar-chart',    title: 'Claims Accuracy',  body: 'Verified patient identity means every claim is matched to the correct individual, reducing disputes, appeals, and administrative overhead.' },
       { icon: 'lightbulb',   title: 'Risk Reduction',   body: 'Real-time identity verification reduces exposure to high-cost fraudulent claims before authorization is granted.' },
-      { icon: 'users',        title: 'Member Trust',     body: 'Offer members a verified digital health passport — a differentiating benefit that drives enrollment and retention.' },
+      { icon: 'users',        title: 'Member Trust',     body: 'Offer members a verified digital health passport, a differentiating benefit that drives enrollment and retention.' },
     ],
     quote: '"Healthcare fraud costs the U.S. an estimated $60 billion per year — with medical identity theft accounting for $41.3 billion of that."',
     quoteSource: '— FBI Healthcare Fraud Division',
@@ -73,9 +73,9 @@ const SOLUTIONS = [
       'Substance misuse (33%) and trauma (25%) patients often can\'t self-identify',
     ],
     benefits: [
-      { icon: 'zap',          title: 'Instant ID in Seconds',           body: 'A biometric scan returns a full health profile — allergies, medications, conditions, blood type, DNR status — before the patient reaches the ER.' },
+      { icon: 'zap',          title: 'Instant ID in Seconds',           body: 'A biometric scan returns a full health profile (allergies, medications, conditions, blood type, DNR status) before the patient reaches the ER.' },
       { icon: 'pill',         title: 'Prevent Fatal Errors',            body: '44,000–98,000 people die annually from medication errors. Knowing a patient\'s allergies and current meds at the scene saves lives.' },
-      { icon: 'phone',        title: 'Automatic Contact Notification',  body: 'Emergency contacts are identified and notified the moment a patient is scanned — no manual search required.' },
+      { icon: 'phone',        title: 'Automatic Contact Notification',  body: 'Emergency contacts are identified and notified the moment a patient is scanned. No manual search required.' },
       { icon: 'file-text',    title: 'Documentation Ready',             body: 'Patient identity, consent status, and medical history are pre-populated for intake documentation, reducing ER workload.' },
     ],
     quote: '"Unidentified patients have a 13.2% 30-day mortality rate — nearly double that of identified patients presenting with similar conditions."',
@@ -118,8 +118,8 @@ const SOLUTIONS = [
     ],
     benefits: [
       { icon: 'credit-card',    title: 'Verified Access Control', body: 'Know who is entering your facility. Phiris biometric ID verifies patients and flags individuals with prior incidents on record.' },
-      { icon: 'alert-circle',   title: 'Threat Intelligence',    body: 'Cross-reference incoming patients against security flags — protecting staff before a situation escalates.' },
-      { icon: 'file-text',      title: 'Audit Trails',           body: 'Every biometric scan creates a timestamped record — providing documented evidence for incident investigations and compliance.' },
+      { icon: 'alert-circle',   title: 'Threat Intelligence',    body: 'Cross-reference incoming patients against security flags to protect staff before a situation escalates.' },
+      { icon: 'file-text',      title: 'Audit Trails',           body: 'Every biometric scan creates a timestamped record, providing documented evidence for incident investigations and compliance.' },
       { icon: 'users',          title: 'Staff Protection',       body: 'Reduce anonymous encounters. Staff know who they are treating, reducing situations where false identities are used to evade prior bans or warrants.' },
     ],
     quote: '"Healthcare workers are assaulted more than any other profession — accounting for nearly half of all nonfatal workplace violence in the U.S."',
@@ -158,7 +158,7 @@ export default function Solutions() {
             <span style={styles.heroGradient}>is costing you millions.</span>
           </h1>
           <p style={styles.heroSub}>
-            Phiris is the biometric health identity platform that eliminates misidentification errors, prevents fraud, protects staff, and saves lives — at every point of care.
+            Phiris is the biometric health identity platform that eliminates misidentification errors, prevents fraud, protects staff, and saves lives at every point of care.
           </p>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => setModalOpen(true)} className="btn btn-primary btn-lg" style={{ cursor: 'pointer' }}>
@@ -322,7 +322,7 @@ export default function Solutions() {
                 "They didn't know his blood type.<br />They didn't know about the allergy.<br />He almost didn't make it."
               </h3>
               <p style={{ color: 'rgba(28,42,42,0.62)', lineHeight: 1.75, marginBottom: 28, fontSize: '0.95rem' }}>
-                Stories like this happen every day across the country. Patient misidentification isn't a rare edge case — it's a systemic failure that costs lives and money at every point of care.
+                Stories like this happen every day across the country. Patient misidentification isn't a rare edge case. It's a systemic failure that costs lives and money at every point of care.
               </p>
               <div style={{ borderTop: '1px solid rgba(28,42,42,0.1)', paddingTop: 24 }}>
                 <div style={{ fontSize: '2rem', fontWeight: 800, color: '#1E8484' }}>250,000+</div>
@@ -343,9 +343,9 @@ export default function Solutions() {
           </div>
           <div style={styles.howGrid}>
             {[
-              { step: '01', icon: 'eye-scan', title: 'Patient enrolls once', body: 'Patients self-enroll through the Phiris app — entering their medical profile and emergency contacts. Enrollment captures a multi-angle face and iris scan, rotating to build a 3D biometric map for maximum accuracy. Consent is documented.' },
-              { step: '02', icon: 'scan',        title: 'Responder scans at scene', body: 'In any emergency, a verified responder opens the Phiris platform and performs a biometric scan — face, iris, or both. Identity is confirmed in seconds, even for unconscious patients.' },
-              { step: '03', icon: 'file-text',   title: 'Full profile surfaces instantly', body: 'The patient\'s complete health passport appears — allergies, medications, conditions, DNR status, blood type, and emergency contacts. No guessing.' },
+              { step: '01', icon: 'eye-scan', title: 'Patient enrolls once', body: 'Patients self-enroll through the Phiris app, entering their medical profile and emergency contacts. Enrollment captures a multi-angle face and iris scan, rotating to build a 3D biometric map for maximum accuracy. Consent is documented.' },
+              { step: '02', icon: 'scan',        title: 'Responder scans at scene', body: 'In any emergency, a verified responder opens the Phiris platform and performs a biometric scan (face, iris, or both). Identity is confirmed in seconds, even for unconscious patients.' },
+              { step: '03', icon: 'file-text',   title: 'Full profile surfaces instantly', body: 'The patient\'s complete health passport appears: allergies, medications, conditions, DNR status, blood type, and emergency contacts. No guessing.' },
             ].map((s, i) => (
               <div key={i} style={styles.howCard}>
                 <div style={styles.howStep}>{s.step}</div>

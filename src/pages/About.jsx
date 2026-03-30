@@ -140,7 +140,7 @@ export default function About() {
               </p>
               <p>
                 Our work is guided by a commitment to patient safety, data security, and responsible
-                innovation. Phiris is not an EMR — we are built to verify patient identity earlier,
+                innovation. Phiris is not an EMR. We are built to verify patient identity earlier,
                 reduce downstream errors, and accelerate care coordination.
               </p>
             </div>
@@ -158,7 +158,7 @@ export default function About() {
               The data doesn't lie.<br />Patients are ready.
             </h2>
             <p style={styles.sectionSubtitle}>
-              We surveyed 2,762 patients — no product demo, no sales framing. Just honest questions
+              We surveyed 2,762 patients. No product demo, no sales framing. Just honest questions
               about identity, emergencies, and trust.
             </p>
           </div>
@@ -186,7 +186,7 @@ export default function About() {
               Healthcare professionals<br />confirmed the problem.
             </h2>
             <p style={styles.sectionSubtitle}>
-              Patient identity breakdowns are not edge cases — they are routine, costly, and system-wide.
+              Patient identity breakdowns are not edge cases. They are routine, costly, and system-wide.
               Our healthcare professional survey of 3,684 respondents confirmed this across hospitals,
               EMS, health systems, and revenue cycle teams.
             </p>
@@ -295,10 +295,10 @@ export default function About() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8 }}>
                 <p>
-                  When Austin's mother had a stroke, the ER spent critical minutes asking questions that should have had instant answers — medications, allergies, her doctor. It happened again through her relapses. Every time, the same breakdown.
+                  When Austin's mother had a stroke, the ER spent critical minutes asking questions that should have had instant answers: medications, allergies, her doctor. It happened again through her relapses. Every time, the same breakdown.
                 </p>
                 <p>
-                  That experience collided with years Austin spent at Baxter working inside hospitals — in ORs, emergency departments, and trauma bays. He saw the same failure from both sides: a family desperate for answers, and clinical teams doing their best without the information they needed.
+                  That experience collided with years Austin spent at Baxter working inside hospitals, in ORs, emergency departments, and trauma bays. He saw the same failure from both sides: a family desperate for answers, and clinical teams doing their best without the information they needed.
                 </p>
                 <p style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
                   His background in Biomedical Engineering and an MBA gave him the toolkit to understand why it keeps happening — and how to fix it. Phiris is the infrastructure that should have existed all along.
@@ -317,7 +317,7 @@ export default function About() {
               <p style={styles.eyebrow}>Contact Us</p>
               <h2 style={{ ...styles.sectionTitle, color: 'white' }}>Let's talk.</h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginTop: 16, maxWidth: 300 }}>
-                For research, partnership, pilot programs, or general inquiries — we respond promptly.
+                For research, partnerships, or pilot programs. We respond promptly.
               </p>
               <div style={{ marginTop: 32, display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div style={styles.contactDetail}>

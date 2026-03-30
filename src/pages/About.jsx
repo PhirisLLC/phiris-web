@@ -111,7 +111,7 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section style={{ background: 'white', padding: 0, overflow: 'hidden', borderBottom: '1px solid rgba(28,42,42,0.07)' }}>
+      <section style={{ background: 'white', padding: 0, overflow: 'hidden' }}>
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', minHeight: isMobile ? 'auto' : 500 }}>
           {/* Photo side */}
           <div style={{ position: 'relative', overflow: 'hidden', height: isMobile ? 220 : 'auto' }}>
@@ -150,7 +150,7 @@ export default function About() {
 
 
       {/* Research — Patient Survey */}
-      <section style={{ ...styles.section, background: 'white', borderTop: '1px solid rgba(28,42,42,0.07)' }}>
+      <section style={{ ...styles.section, background: 'white' }}>
         <div className="container">
           <div style={styles.sectionHeader}>
             <p style={styles.eyebrow}>Research</p>
@@ -179,7 +179,7 @@ export default function About() {
       </section>
 
       {/* Research — HCP Survey */}
-      <section style={{ ...styles.section, background: 'white', borderTop: '1px solid rgba(28,42,42,0.07)' }}>
+      <section style={{ ...styles.section, background: '#F0F7F7' }}>
         <div className="container">
           <div style={styles.sectionHeader}>
             <h2 style={styles.sectionTitle}>

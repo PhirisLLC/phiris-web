@@ -274,7 +274,7 @@ export default function About() {
                 <div style={{ fontSize: '0.82rem', color: '#3AABAB', fontWeight: 600, marginBottom: 16 }}>Founder & CEO, Phiris</div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
                   {[
-                    { icon: 'building', text: 'Baxter International, since 2018' },
+                    { icon: 'building', text: 'Baxter, 8 years in hospital sales' },
                     { icon: 'graduation-cap', text: 'B.S. Biomedical Engineering + MBA' },
                     { icon: 'graduation-cap', text: 'University of Iowa' },
                     { icon: 'map-pin', text: 'Dallas, TX' },
@@ -298,7 +298,7 @@ export default function About() {
                   When Austin's mother had a stroke, the ER spent critical minutes asking questions that should have had instant answers — medications, allergies, her doctor. It happened again through her relapses. Every time, the same breakdown.
                 </p>
                 <p>
-                  That experience collided with six years Austin spent at Baxter working inside hospitals — in ORs, emergency departments, and trauma bays. He saw the same failure from both sides: a family desperate for answers, and clinical teams doing their best without the information they needed.
+                  That experience collided with eight years Austin spent at Baxter working inside hospitals — in ORs, emergency departments, and trauma bays. He saw the same failure from both sides: a family desperate for answers, and clinical teams doing their best without the information they needed.
                 </p>
                 <p style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
                   His background in Biomedical Engineering and an MBA gave him the toolkit to understand why it keeps happening — and how to fix it. Phiris is the infrastructure that should have existed all along.

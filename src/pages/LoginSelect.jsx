@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 
+
 const ROLES = [
   {
     key: 'patient',
@@ -37,8 +38,10 @@ export default function LoginSelect() {
 
       <div style={styles.wrap}>
         <div style={styles.logoArea}>
-          <img src="/logo-white.svg" alt="Phiris" style={{ height: 44, marginBottom: 10 }} />
-          <p style={styles.tagline}>Know Me When It Matters</p>
+          <Link to="/" style={{ display: 'inline-block', lineHeight: 0 }}>
+            <img src="/logo-white.svg" alt="Phiris" style={{ height: 44, marginBottom: 10 }} />
+          </Link>
+          <p style={styles.tagline}>Your Healthcare Passport</p>
         </div>
 
         <h1 style={styles.heading}>How are you signing in?</h1>
@@ -72,6 +75,11 @@ export default function LoginSelect() {
           <Link to="/admin/login" style={styles.adminAnchor}>
             🔐 Phiris staff sign in
           </Link>
+          <div style={{ marginTop: 12 }}>
+            <Link to="/" style={{ ...styles.adminAnchor, color: 'rgba(255,255,255,0.35)' }}>
+              ← Return to Home
+            </Link>
+          </div>
         </div>
       </div>
     </div>

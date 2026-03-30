@@ -47,7 +47,9 @@ export default function AdminLogin() {
       <div style={styles.wrap}>
         {/* Logo area */}
         <div style={styles.logoArea}>
-          <img src="/logo-white.svg" alt="Phiris" style={{ height: 40, marginBottom: 8 }} />
+          <Link to="/" style={{ display: 'inline-block', lineHeight: 0 }}>
+            <img src="/logo-white.svg" alt="Phiris" style={{ height: 40, marginBottom: 8 }} />
+          </Link>
           <div style={styles.badge}>STAFF PORTAL</div>
         </div>
 

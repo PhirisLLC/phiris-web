@@ -62,7 +62,7 @@ export default function Landing() {
                 Now enrolling — Early access
               </div>
               <h1 style={styles.heroTitle}>
-                <span>When seconds matter,</span><br />
+                <span style={{ whiteSpace: 'nowrap' }}>When seconds matter,</span><br />
                 <span style={styles.heroGradientText}>identity matters.</span>
               </h1>
               <p style={styles.heroPassport}>
@@ -519,7 +519,7 @@ const styles = {
     zIndex: -1,
   },
   heroTitle: {
-    fontSize: 'clamp(2rem, 5vw, 3.75rem)',
+    fontSize: 'clamp(1.45rem, 5vw, 3.75rem)',
     fontWeight: 800,
     lineHeight: 1.05,
     letterSpacing: '-0.03em',

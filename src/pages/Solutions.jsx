@@ -176,14 +176,14 @@ export default function Solutions() {
       <section style={{ padding: 0, overflow: 'hidden' }}>
         <div style={{ display: 'flex', height: isMobile ? 160 : 280 }}>
           {[
-            { img: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600', flex: 1, label: 'Hospitals', mobileShow: true, scale: 0.78 },
-            { img: 'https://images.pexels.com/photos/7089620/pexels-photo-7089620.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Insurance', mobileShow: true, scale: 0.78 },
-            { img: 'https://images.pexels.com/photos/6754146/pexels-photo-6754146.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'First Responders', mobileShow: true, scale: 0.78 },
-            { img: 'https://images.pexels.com/photos/9629685/pexels-photo-9629685.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Pharmacy', mobileShow: false, scale: 1 },
-            { img: 'https://images.pexels.com/photos/30233815/pexels-photo-30233815.jpeg?auto=compress&cs=tinysrgb&w=800', flex: 1, label: 'Hospital Security', mobileShow: false, scale: 1 },
+            { img: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600', flex: 1, label: 'Hospitals', mobileShow: true },
+            { img: 'https://images.pexels.com/photos/7089620/pexels-photo-7089620.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Insurance', mobileShow: true },
+            { img: 'https://images.pexels.com/photos/6754146/pexels-photo-6754146.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'First Responders', mobileShow: true },
+            { img: 'https://images.pexels.com/photos/9629685/pexels-photo-9629685.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Pharmacy', mobileShow: false },
+            { img: '/evolv-express.jpg', flex: 1, label: 'Hospital Security', mobileShow: false },
           ].filter(p => !isMobile || p.mobileShow).map((p, i) => (
-            <div key={i} style={{ flex: p.flex, position: 'relative', overflow: 'hidden', background: '#0A1515' }}>
-              <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.65)', transform: `scale(${p.scale})`, transformOrigin: 'center' }} />
+            <div key={i} style={{ flex: p.flex, position: 'relative', overflow: 'hidden' }}>
+              <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: i === 4 ? 'center center' : 'center', filter: 'brightness(0.65)' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(10,21,21,0.9) 100%)' }} />
               <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontSize: isMobile ? '0.55rem' : '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(58,171,171,0.9)', textTransform: 'uppercase' }}>{p.label}</div>
             </div>

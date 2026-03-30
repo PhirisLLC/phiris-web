@@ -256,60 +256,55 @@ export default function About() {
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <p style={styles.eyebrow}>The Founder</p>
-            <h2 style={{ ...styles.sectionTitle, color: 'white' }}>Built by someone who<br />has seen the problem firsthand.</h2>
+            <h2 style={{ ...styles.sectionTitle, color: 'white' }}>This is personal.</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '340px 1fr', gap: isMobile ? 40 : 72, alignItems: 'start', maxWidth: 960, margin: '0 auto' }}>
-            {/* Photo + credentials */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: isMobile ? 'center' : 'flex-start', gap: 24 }}>
-              <div style={{ position: 'relative', width: 220, height: 220 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '280px 1fr', gap: isMobile ? 40 : 72, alignItems: 'start', maxWidth: 900, margin: '0 auto' }}>
+            {/* Photo */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: isMobile ? 'center' : 'flex-start', gap: 20 }}>
+              <div style={{ position: 'relative', width: 200, height: 200 }}>
                 <img
                   src="/austin-gibson.png"
                   alt="Austin Gibson, Founder of Phiris"
-                  style={{ width: 220, height: 220, borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', border: '3px solid rgba(58,171,171,0.35)', display: 'block' }}
+                  style={{ width: 200, height: 200, borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', border: '3px solid rgba(58,171,171,0.3)', display: 'block' }}
                 />
-                <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', boxShadow: '0 0 40px rgba(58,171,171,0.15)' }} />
+                <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', boxShadow: '0 0 40px rgba(58,171,171,0.12)' }} />
               </div>
               <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
-                <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white', marginBottom: 4 }}>Austin Gibson</div>
-                <div style={{ fontSize: '0.85rem', color: '#3AABAB', fontWeight: 600, marginBottom: 16 }}>Founder & CEO, Phiris</div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <div style={{ fontSize: '1.15rem', fontWeight: 800, color: 'white', marginBottom: 4 }}>Austin Gibson</div>
+                <div style={{ fontSize: '0.82rem', color: '#3AABAB', fontWeight: 600, marginBottom: 16 }}>Founder & CEO, Phiris</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
                   {[
-                    { icon: 'building', text: 'Baxter International — Global Surgical Solutions' },
-                    { icon: 'graduation-cap', text: 'B.S. Biomedical Engineering, University of Iowa' },
-                    { icon: 'briefcase', text: 'MBA, University of Iowa (4.02 GPA)' },
+                    { icon: 'building', text: 'Baxter International, since 2018' },
+                    { icon: 'graduation-cap', text: 'B.S. Biomedical Engineering + MBA' },
+                    { icon: 'graduation-cap', text: 'University of Iowa' },
                     { icon: 'map-pin', text: 'Dallas, TX' },
                   ].map((item, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                      <Icon name={item.icon} size={15} color="#3AABAB" strokeWidth={1.75} />
-                      <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.4 }}>{item.text}</span>
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <Icon name={item.icon} size={14} color="#3AABAB" strokeWidth={1.75} />
+                      <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.4 }}>{item.text}</span>
                     </div>
                   ))}
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: isMobile ? 'center' : 'flex-start' }}>
-                {['Diamond Club Honoree', 'President\'s Club × 2', '2024 Sales Rep of the Year', 'National Field Sales Trainer'].map((badge, i) => (
-                  <span key={i} style={{ background: 'rgba(58,171,171,0.1)', border: '1px solid rgba(58,171,171,0.2)', color: '#3AABAB', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.05em', padding: '4px 10px', borderRadius: 20 }}>{badge}</span>
-                ))}
               </div>
             </div>
 
             {/* Story */}
             <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', lineHeight: 1.3, marginBottom: 24 }}>
-                "I spent six years walking into hospitals across the country. I watched how they worked — and where they broke down."
+              <div style={{ fontSize: isMobile ? '1.25rem' : '1.5rem', fontWeight: 800, color: 'white', lineHeight: 1.35, marginBottom: 28, fontStyle: 'italic' }}>
+                "They were still asking her about her medications while she was having a stroke."
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 18, color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8 }}>
                 <p>
-                  Austin Gibson is a biomedical engineer turned healthcare commercial strategist. With a B.S. in Biomedical Engineering and an MBA from the University of Iowa, he spent six years at Baxter International's Global Surgical Solutions division — working directly with hospitals, OR teams, and surgical administrators across the United States.
+                  When Austin Gibson's mother suffered a stroke, the ER team spent critical minutes asking questions that should have had instant answers — what medications is she on, does she have any allergies, who is her doctor? Time that could have been spent treating her was spent searching for information that should have been right there. She had relapses. Every time, the same breakdown. A healthcare system that treats every emergency as if the patient is a stranger.
                 </p>
                 <p>
-                  As a Senior Sales Consultant and National Field Sales Trainer, Austin closed complex capital deals, coordinated multi-site implementations, and built clinical relationships at some of the country's largest health systems and ambulatory surgery centers. Along the way, he was recognized as a Diamond Club Honoree, a two-time President's Club winner, and the 2024 Sales Rep of the Year.
+                  That experience collided with six years Austin spent at Baxter International working inside hospitals across the country — in operating rooms, emergency departments, and trauma bays. He saw the same failure from both sides: a family member desperate for answers, and clinical teams doing their best without the information they needed.
                 </p>
                 <p>
-                  But what he kept seeing — in trauma bays, pre-op suites, and emergency departments — was the same quiet failure: staff who couldn't confirm who the patient was, couldn't access their history, and had to make critical decisions without the information they needed. He saw procedures delayed. He saw wrong-site risks. He saw families left waiting with no notification.
+                  His degree in Biomedical Engineering gave him the systems vocabulary to understand why the breakdown happens — not a technology problem, an infrastructure problem. His MBA sharpened the lens on why no one had fixed it: the incentives, the procurement cycles, the organizational friction that keeps hospitals stuck. Together, they gave him the toolkit to build something that actually fits how healthcare works.
                 </p>
                 <p style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
-                  Phiris is his answer to that problem — built with the technical foundation of an engineer, the commercial instincts of a top-performing sales leader, and the urgency of someone who has watched the stakes play out in real operating rooms.
+                  Phiris is built so no family has to watch what his did. It's the infrastructure that should have existed all along.
                 </p>
               </div>
             </div>

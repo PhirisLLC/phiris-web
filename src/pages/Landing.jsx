@@ -72,11 +72,11 @@ export default function Landing() {
                 Phiris lets emergency responders instantly identify you and access your
                 critical medical information — even when you can't speak for yourself.
               </p>
-              <div style={{ ...styles.heroCTA, flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap' }}>
+              <div style={{ ...styles.heroCTA, flexDirection: 'row', alignItems: 'center', flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
                 <Link to="/register" className="btn btn-primary btn-lg">
                   Enroll as a Patient
                 </Link>
-                <Link to="/responder/register" className="btn btn-ghost btn-lg" style={{ color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.2)', ...(isMobile ? { textAlign: 'center' } : {}) }}>
+                <Link to="/responder/register" className="btn btn-ghost btn-lg" style={{ color: 'rgba(255,255,255,0.7)', borderColor: 'rgba(255,255,255,0.2)' }}>
                   I'm a First Responder / HCP
                 </Link>
               </div>

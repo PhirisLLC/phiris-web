@@ -143,7 +143,7 @@ export default function Solutions() {
   const isMobile = useIsMobile()
 
   return (
-    <div className="page" style={{ background: '#F7F5F0', overflowX: 'hidden' }}>
+    <div className="page" style={{ background: '#0D1A1A', overflowX: 'hidden' }}>
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       <Header />
 
@@ -303,7 +303,7 @@ export default function Solutions() {
 
 
       {/* ── REAL SCENARIOS PHOTO ───────────────────────────── */}
-      <section style={{ background: '#F4F9F9', padding: isMobile ? '48px 0' : '80px 0' }}>
+      <section style={{ background: '#F0F7F7', padding: isMobile ? '48px 0' : '80px 0' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 0, borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)' }}>
             {!isMobile && (
@@ -313,10 +313,10 @@ export default function Solutions() {
                 alt="Labeled blood bags in a medical facility"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(244,249,249,0.35) 100%)' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(240,247,247,0.35) 100%)' }} />
             </div>
             )}
-            <div style={{ background: '#F4F9F9', padding: isMobile ? '36px 24px' : '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ background: '#F0F7F7', padding: isMobile ? '36px 24px' : '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <p style={{ color: '#1E8484', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>The difference Phiris makes</p>
               <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0D1A1A', lineHeight: 1.3, marginBottom: 20 }}>
                 "They didn't know his blood type.<br />They didn't know about the allergy.<br />He almost didn't make it."
@@ -335,7 +335,7 @@ export default function Solutions() {
 
       {/* How it works */}
 
-      <section style={{ padding: '80px 0', background: '#fff' }}>
+      <section style={{ padding: '80px 0', background: '#F0F7F7' }}>
         <div className="container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <h2 style={styles.sectionTitle}>How Phiris works</h2>
@@ -477,7 +477,7 @@ const styles = {
   },
   solutionsSection: {
     padding: '60px 0 80px',
-    background: '#F7F5F0',
+    background: '#F0F7F7',
   },
   tabBar: {
     display: 'flex',

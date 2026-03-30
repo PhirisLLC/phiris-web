@@ -218,7 +218,7 @@ export default function About() {
       </section>
 
       {/* Company info */}
-      <section style={{ ...styles.section, background: '#F7F5F0' }}>
+      <section style={{ ...styles.section, background: '#F0F7F7' }}>
         <div className="container">
           <div style={styles.twoCol}>
             <div>

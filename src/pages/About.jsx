@@ -148,23 +148,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Photo strip */}
-      <section style={{ padding: 0, overflow: 'hidden' }}>
-        <div style={{ display: 'flex', height: isMobile ? 140 : 240 }}>
-          {[
-            { img: 'https://images.pexels.com/photos/8942726/pexels-photo-8942726.jpeg?auto=compress&cs=tinysrgb&w=500', label: 'EMS Response' },
-            { img: 'https://images.pexels.com/photos/8942700/pexels-photo-8942700.jpeg?auto=compress&cs=tinysrgb&w=500', label: 'Emergency Care' },
-            { img: 'https://images.pexels.com/photos/6754173/pexels-photo-6754173.jpeg?auto=compress&cs=tinysrgb&w=500', label: 'Patient Recovery' },
-            { img: 'https://images.pexels.com/photos/6754178/pexels-photo-6754178.jpeg?auto=compress&cs=tinysrgb&w=500', label: 'Compassionate Care' },
-          ].map((p, i) => (
-            <div key={i} style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
-              <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6) saturate(0.9)' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(10,21,21,0.85) 100%)' }} />
-              <div style={{ position: 'absolute', bottom: 12, left: 0, right: 0, textAlign: 'center', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.1em', color: 'rgba(58,171,171,0.85)', textTransform: 'uppercase' }}>{p.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Research — Patient Survey */}
       <section style={{ ...styles.section, background: 'white', borderTop: '1px solid rgba(28,42,42,0.07)' }}>
@@ -262,6 +245,72 @@ export default function About() {
                 <Link to="/responder/register" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#155F5F', fontWeight: 600, fontSize: '0.9rem' }}>
                   Register as HCP / First Responder →
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder */}
+      <section style={{ ...styles.section, background: '#0D1A1A' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <p style={styles.eyebrow}>The Founder</p>
+            <h2 style={{ ...styles.sectionTitle, color: 'white' }}>Built by someone who<br />has seen the problem firsthand.</h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '340px 1fr', gap: isMobile ? 40 : 72, alignItems: 'start', maxWidth: 960, margin: '0 auto' }}>
+            {/* Photo + credentials */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: isMobile ? 'center' : 'flex-start', gap: 24 }}>
+              <div style={{ position: 'relative', width: 220, height: 220 }}>
+                <img
+                  src="/austin-gibson.png"
+                  alt="Austin Gibson, Founder of Phiris"
+                  style={{ width: 220, height: 220, borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', border: '3px solid rgba(58,171,171,0.35)', display: 'block' }}
+                />
+                <div style={{ position: 'absolute', inset: 0, borderRadius: '50%', boxShadow: '0 0 40px rgba(58,171,171,0.15)' }} />
+              </div>
+              <div style={{ textAlign: isMobile ? 'center' : 'left' }}>
+                <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'white', marginBottom: 4 }}>Austin Gibson</div>
+                <div style={{ fontSize: '0.85rem', color: '#3AABAB', fontWeight: 600, marginBottom: 16 }}>Founder & CEO, Phiris</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {[
+                    { icon: 'building', text: 'Baxter International — Global Surgical Solutions' },
+                    { icon: 'graduation-cap', text: 'B.S. Biomedical Engineering, University of Iowa' },
+                    { icon: 'briefcase', text: 'MBA, University of Iowa (4.02 GPA)' },
+                    { icon: 'map-pin', text: 'Dallas, TX' },
+                  ].map((item, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                      <Icon name={item.icon} size={15} color="#3AABAB" strokeWidth={1.75} />
+                      <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.4 }}>{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: isMobile ? 'center' : 'flex-start' }}>
+                {['Diamond Club Honoree', 'President\'s Club × 2', '2024 Sales Rep of the Year', 'National Field Sales Trainer'].map((badge, i) => (
+                  <span key={i} style={{ background: 'rgba(58,171,171,0.1)', border: '1px solid rgba(58,171,171,0.2)', color: '#3AABAB', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.05em', padding: '4px 10px', borderRadius: 20 }}>{badge}</span>
+                ))}
+              </div>
+            </div>
+
+            {/* Story */}
+            <div>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', lineHeight: 1.3, marginBottom: 24 }}>
+                "I spent six years walking into hospitals across the country. I watched how they worked — and where they broke down."
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 18, color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8 }}>
+                <p>
+                  Austin Gibson is a biomedical engineer turned healthcare commercial strategist. With a B.S. in Biomedical Engineering and an MBA from the University of Iowa, he spent six years at Baxter International's Global Surgical Solutions division — working directly with hospitals, OR teams, and surgical administrators across the United States.
+                </p>
+                <p>
+                  As a Senior Sales Consultant and National Field Sales Trainer, Austin closed complex capital deals, coordinated multi-site implementations, and built clinical relationships at some of the country's largest health systems and ambulatory surgery centers. Along the way, he was recognized as a Diamond Club Honoree, a two-time President's Club winner, and the 2024 Sales Rep of the Year.
+                </p>
+                <p>
+                  But what he kept seeing — in trauma bays, pre-op suites, and emergency departments — was the same quiet failure: staff who couldn't confirm who the patient was, couldn't access their history, and had to make critical decisions without the information they needed. He saw procedures delayed. He saw wrong-site risks. He saw families left waiting with no notification.
+                </p>
+                <p style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
+                  Phiris is his answer to that problem — built with the technical foundation of an engineer, the commercial instincts of a top-performing sales leader, and the urgency of someone who has watched the stakes play out in real operating rooms.
+                </p>
               </div>
             </div>
           </div>

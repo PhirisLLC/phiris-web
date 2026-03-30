@@ -162,7 +162,7 @@ export default function Landing() {
       <section style={{ background: '#0B1818', borderTop: '1px solid rgba(58,171,171,0.08)', borderBottom: '1px solid rgba(58,171,171,0.08)', padding: '0' }}>
         <div style={{ display: 'flex', height: isMobile ? 160 : 300, overflow: 'hidden' }}>
           {[
-            { img: 'https://images.pexels.com/photos/6754178/pexels-photo-6754178.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Patient Care', pos: 'center 40%' },
+            { img: 'https://images.pexels.com/photos/6754178/pexels-photo-6754178.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Patient Emergency', pos: 'center 40%' },
             { img: 'https://images.pexels.com/photos/8942528/pexels-photo-8942528.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'First Responders', pos: 'center 30%' },
             { img: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Emergency Care', pos: 'center 50%' },
           ].map((p, i) => (

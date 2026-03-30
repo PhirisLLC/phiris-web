@@ -240,6 +240,21 @@ const paths = {
       <path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round" />
     </>
   ),
+  // ── Education / Work ─────────────────────────────────
+  'graduation-cap': (
+    <>
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6 12v5c3 3 9 3 12 0v-5" strokeLinecap="round" strokeLinejoin="round" />
+    </>
+  ),
+  briefcase: (
+    <>
+      <rect x="2" y="7" width="20" height="14" rx="2" strokeLinejoin="round" />
+      <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="12" y1="12" x2="12" y2="12" strokeLinecap="round" />
+      <path d="M2 13h20" strokeLinecap="round" />
+    </>
+  ),
   // ── Buildings ────────────────────────────────────────
   building: (
     <>

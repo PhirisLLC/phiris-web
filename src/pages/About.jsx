@@ -295,16 +295,13 @@ export default function About() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: 1.8 }}>
                 <p>
-                  When Austin Gibson's mother suffered a stroke, the ER team spent critical minutes asking questions that should have had instant answers — what medications is she on, does she have any allergies, who is her doctor? Time that could have been spent treating her was spent searching for information that should have been right there. She had relapses. Every time, the same breakdown. A healthcare system that treats every emergency as if the patient is a stranger.
+                  When Austin's mother had a stroke, the ER spent critical minutes asking questions that should have had instant answers — medications, allergies, her doctor. It happened again through her relapses. Every time, the same breakdown.
                 </p>
                 <p>
-                  That experience collided with six years Austin spent at Baxter International working inside hospitals across the country — in operating rooms, emergency departments, and trauma bays. He saw the same failure from both sides: a family member desperate for answers, and clinical teams doing their best without the information they needed.
-                </p>
-                <p>
-                  His degree in Biomedical Engineering gave him the systems vocabulary to understand why the breakdown happens — not a technology problem, an infrastructure problem. His MBA sharpened the lens on why no one had fixed it: the incentives, the procurement cycles, the organizational friction that keeps hospitals stuck. Together, they gave him the toolkit to build something that actually fits how healthcare works.
+                  That experience collided with six years Austin spent at Baxter working inside hospitals — in ORs, emergency departments, and trauma bays. He saw the same failure from both sides: a family desperate for answers, and clinical teams doing their best without the information they needed.
                 </p>
                 <p style={{ color: 'rgba(255,255,255,0.85)', fontWeight: 500 }}>
-                  Phiris is built so no family has to watch what his did. It's the infrastructure that should have existed all along.
+                  His background in Biomedical Engineering and an MBA gave him the toolkit to understand why it keeps happening — and how to fix it. Phiris is the infrastructure that should have existed all along.
                 </p>
               </div>
             </div>

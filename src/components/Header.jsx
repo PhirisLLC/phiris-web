@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 export default function Header({ variant = 'default' }) {
   const { currentUser, userProfile, logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const isMobile = useIsMobile()
 
   async function handleLogout() {
     await logout()
@@ -29,7 +31,7 @@ export default function Header({ variant = 'default' }) {
         </Link>
 
         {/* Desktop Nav */}
-        <nav style={styles.nav}>
+        <nav style={{ ...styles.nav, display: isMobile ? 'none' : 'flex' }}>
           {!currentUser ? (
             <>
               <Link to="/solutions" style={styles.navLink(variant, location.pathname === '/solutions')}>For Organizations</Link>
@@ -82,13 +84,17 @@ export default function Header({ variant = 'default' }) {
         </nav>
 
         {/* Mobile hamburger */}
-        <button
-          style={styles.hamburger(variant)}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menu"
-        >
-          <span /><span /><span />
-        </button>
+        {isMobile && (
+          <button
+            style={styles.hamburger(variant)}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Menu"
+          >
+            <span style={styles.hamburgerLine(variant, menuOpen, 0)} />
+            <span style={styles.hamburgerLine(variant, menuOpen, 1)} />
+            <span style={styles.hamburgerLine(variant, menuOpen, 2)} />
+          </button>
+        )}
       </div>
 
       {/* Mobile menu */}
@@ -179,26 +185,38 @@ const styles = {
     padding: 0,
   },
   hamburger: (variant) => ({
-    display: 'none',
+    display: 'flex',
     flexDirection: 'column',
     gap: 5,
     background: 'none',
     border: 'none',
-    padding: 4,
+    padding: 8,
     cursor: 'pointer',
-    // shown via media query
+    borderRadius: 8,
+  }),
+  hamburgerLine: (variant, open, idx) => ({
+    display: 'block',
+    width: 22,
+    height: 2,
+    borderRadius: 2,
+    background: variant === 'dark' ? 'rgba(255,255,255,0.85)' : '#1C2A2A',
+    transition: 'all 0.25s ease',
+    transformOrigin: 'center',
+    ...(open && idx === 0 ? { transform: 'translateY(7px) rotate(45deg)' } : {}),
+    ...(open && idx === 1 ? { opacity: 0 } : {}),
+    ...(open && idx === 2 ? { transform: 'translateY(-7px) rotate(-45deg)' } : {}),
   }),
   mobileMenu: {
     display: 'flex',
     flexDirection: 'column',
     background: 'white',
     borderTop: '1px solid #D4E5E5',
-    padding: '16px 24px',
-    gap: 4,
+    padding: '8px 0 16px',
+    boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
   },
   mobileLink: {
     display: 'block',
-    padding: '12px 0',
+    padding: '14px 24px',
     fontSize: '1rem',
     fontWeight: 500,
     color: '#1C2A2A',
@@ -206,6 +224,7 @@ const styles = {
     border: 'none',
     textAlign: 'left',
     cursor: 'pointer',
-    borderBottom: '1px solid #F0EDED',
+    width: '100%',
+    transition: 'background 0.15s',
   },
 }

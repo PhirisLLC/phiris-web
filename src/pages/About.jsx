@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Header from '../components/Header'
 import Icon from '../components/Icon'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const PATIENT_FINDINGS = [
   { value: '2,762', label: 'Patients surveyed', color: '#3AABAB' },
@@ -33,6 +34,7 @@ const INQUIRY_TYPES = [
 
 export default function About() {
   const { hash } = useLocation()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     if (hash) {
@@ -110,35 +112,36 @@ export default function About() {
 
       {/* Mission */}
       <section style={{ background: 'white', padding: 0, overflow: 'hidden', borderBottom: '1px solid rgba(28,42,42,0.07)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 500 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', minHeight: isMobile ? 'auto' : 500 }}>
           {/* Photo side */}
-          <div style={{ position: 'relative', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', overflow: 'hidden', height: isMobile ? 220 : 'auto' }}>
             <img
               src="https://images.pexels.com/photos/5452190/pexels-photo-5452190.jpeg?auto=compress&cs=tinysrgb&w=900"
               alt="Family with patient in hospital"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', filter: 'brightness(0.85)' }}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block', filter: 'brightness(0.85)' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 50%, rgba(255,255,255,0.9) 100%)' }} />
+            {!isMobile && (
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 50%, rgba(255,255,255,0.9) 100%)' }} />
+            )}
           </div>
           {/* Text side */}
-          <div style={{ padding: '80px 60px 80px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ padding: isMobile ? '32px 24px' : '60px 48px 60px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <p style={styles.eyebrow}>Our Mission</p>
-            <h2 style={{ ...styles.sectionTitle, marginBottom: 28 }}>An identity and<br />coordination layer<br />for emergency care.</h2>
+            <h2 style={{ ...styles.sectionTitle, marginBottom: 20 }}>An identity and coordination layer for emergency care.</h2>
             <div style={styles.missionText}>
               <p>
                 Phiris is an early-stage healthcare technology company focused on improving patient
                 identification and data protection in emergency and hospital settings.
               </p>
               <p>
-                We are currently conducting research with healthcare professionals to better understand
+                We are conducting research with healthcare professionals to better understand
                 intake workflows, misidentification risks, and opportunities to reduce administrative
                 friction while maintaining strict privacy standards.
               </p>
               <p>
                 Our work is guided by a commitment to patient safety, data security, and responsible
-                innovation in clinical environments. Phiris is not an EMR or clinical decision tool —
-                we are built to verify patient identity earlier, reduce downstream errors, and
-                accelerate hospital and family coordination.
+                innovation. Phiris is not an EMR — we are built to verify patient identity earlier,
+                reduce downstream errors, and accelerate care coordination.
               </p>
             </div>
           </div>
@@ -147,7 +150,7 @@ export default function About() {
 
       {/* Photo strip */}
       <section style={{ padding: 0, overflow: 'hidden' }}>
-        <div style={{ display: 'flex', height: 240 }}>
+        <div style={{ display: 'flex', height: isMobile ? 140 : 240 }}>
           {[
             { img: 'https://images.pexels.com/photos/8942726/pexels-photo-8942726.jpeg?auto=compress&cs=tinysrgb&w=500', label: 'EMS Response' },
             { img: 'https://images.pexels.com/photos/8942700/pexels-photo-8942700.jpeg?auto=compress&cs=tinysrgb&w=500', label: 'Emergency Care' },

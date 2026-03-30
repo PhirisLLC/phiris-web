@@ -251,9 +251,35 @@ input, textarea, select {
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .card { padding: 24px 20px; border-radius: var(--radius-md); }
-  .btn-lg { padding: 16px 32px; font-size: 1rem; }
+  .btn-lg { padding: 14px 24px; font-size: 0.95rem; border-radius: var(--radius-md); }
+  .btn { padding: 12px 20px; }
   .container { padding: 0 16px; }
   .container-narrow { padding: 0 16px; }
+
+  /* Stack CTA button groups vertically on mobile */
+  .hero-cta-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer stack on mobile */
+  .footer-inner-flex {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  /* Scrollable tab bars */
+  .tab-bar-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tab-bar-scroll::-webkit-scrollbar { display: none; }
 }

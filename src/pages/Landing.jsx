@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Icon from '../components/Icon'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const HCP_STATS = [
   { value: '3,684', label: 'Healthcare professionals surveyed' },
@@ -46,21 +47,22 @@ const WHY_IT_MATTERS = [
 ]
 
 export default function Landing() {
+  const isMobile = useIsMobile()
   return (
     <div style={{ background: '#0D1A1A', minHeight: '100vh' }}>
       <Header variant="dark" />
 
       {/* Hero */}
-      <section style={styles.hero}>
+      <section style={{ ...styles.hero, padding: isMobile ? '72px 0 60px' : '100px 0 120px' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={styles.heroLayout}>
+          <div style={{ ...styles.heroLayout, gridTemplateColumns: isMobile ? '1fr' : '1fr auto', gap: isMobile ? 0 : 60 }}>
             {/* Left: copy */}
             <div style={styles.heroContent}>
               <div className="tag tag-teal" style={{ marginBottom: 20, display: 'inline-flex' }}>
                 Now enrolling — Early access
               </div>
               <h1 style={styles.heroTitle}>
-                <span style={{ whiteSpace: 'nowrap' }}>When seconds matter,</span><br />
+                <span>When seconds matter,</span><br />
                 <span style={styles.heroGradientText}>identity matters.</span>
               </h1>
               <p style={styles.heroPassport}>
@@ -80,8 +82,8 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Right: Phone mockup */}
-            <div style={styles.heroVisual}>
+            {/* Right: Phone mockup — hidden on mobile */}
+            {!isMobile && <div style={styles.heroVisual}>
               <div style={styles.phoneMockup}>
                 {/* Phone shell */}
                 <div style={styles.phoneShell}>
@@ -146,6 +148,7 @@ export default function Landing() {
                 <div style={styles.phoneGlow} />
               </div>
             </div>
+            }
           </div>
         </div>
 
@@ -157,7 +160,7 @@ export default function Landing() {
 
       {/* ── PHOTO TRUST STRIP ─────────────────────────────── */}
       <section style={{ background: '#0B1818', borderTop: '1px solid rgba(58,171,171,0.08)', borderBottom: '1px solid rgba(58,171,171,0.08)', padding: '0' }}>
-        <div style={{ display: 'flex', height: 300, overflow: 'hidden' }}>
+        <div style={{ display: 'flex', height: isMobile ? 160 : 300, overflow: 'hidden' }}>
           {[
             { img: 'https://images.pexels.com/photos/6754178/pexels-photo-6754178.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Patient Care', pos: 'center 40%' },
             { img: 'https://images.pexels.com/photos/8942528/pexels-photo-8942528.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'First Responders', pos: 'center 30%' },
@@ -249,7 +252,7 @@ export default function Landing() {
 
 
       {/* ── WHO IT PROTECTS ─────────────────────────────────── */}
-      <section style={{ background: '#F0F7F7', padding: '100px 0' }}>
+      <section style={{ background: '#F0F7F7', padding: isMobile ? '56px 0' : '100px 0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <p style={{ color: '#1E8484', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>Real Scenarios. Real Stakes.</p>
@@ -261,7 +264,7 @@ export default function Landing() {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(6, 1fr)', gap: isMobile ? 16 : 24 }}>
             {[
               {
                 img: 'https://images.pexels.com/photos/4586683/pexels-photo-4586683.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -309,7 +312,7 @@ export default function Landing() {
                 accent: '#27AE60',
               },
             ].map((card, cardIdx) => (
-              <div key={card.tag} style={{ background: 'white', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', gridColumn: cardIdx < 3 ? 'span 2' : 'span 3' }}>
+              <div key={card.tag} style={{ background: 'white', borderRadius: 20, overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', gridColumn: isMobile ? 'span 1' : cardIdx < 3 ? 'span 2' : 'span 3' }}>
                 <div style={{ height: 220, overflow: 'hidden', position: 'relative' }}>
                   <img src={card.img} alt={card.tag} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,26,26,0.6) 0%, transparent 60%)' }} />
@@ -332,7 +335,7 @@ export default function Landing() {
       </section>
 
       {/* ── IN THEIR OWN WORDS ───────────────────────────────── */}
-      <section style={{ background: '#F0F7F7', padding: '100px 0' }}>
+      <section style={{ background: '#F0F7F7', padding: isMobile ? '56px 0' : '100px 0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 60 }}>
             <p style={{ color: '#1E8484', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>From Our 2,762-Person Survey</p>
@@ -341,7 +344,7 @@ export default function Landing() {
             </h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)', gap: isMobile ? 14 : 20 }}>
             {[
               {
                 quote: "Since it would save my life, I need less details. I'm in.",
@@ -375,10 +378,10 @@ export default function Landing() {
                 quote: "The ability for first responders to access my information even if my phone is locked — that is the feature that sold me. That is the moment it actually matters.",
                 age: '25–34',
               },
-            ].map((t, i) => (
-              <div key={i} style={{ background: 'white', border: '1px solid rgba(30,132,132,0.12)', borderRadius: 16, padding: '28px 28px 24px', position: 'relative', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
-                <div style={{ fontSize: '3rem', color: 'rgba(30,132,132,0.18)', lineHeight: 1, marginBottom: 8, fontFamily: 'Georgia, serif', position: 'absolute', top: 16, left: 24 }}>"</div>
-                <p style={{ fontSize: '0.95rem', color: '#2A3A3A', lineHeight: 1.75, fontStyle: 'italic', paddingTop: 20 }}>{t.quote}</p>
+            ].slice(0, isMobile ? 4 : 8).map((t, i) => (
+              <div key={i} style={{ background: 'white', border: '1px solid rgba(30,132,132,0.12)', borderRadius: 16, padding: isMobile ? '20px 20px 16px' : '28px 28px 24px', position: 'relative', boxShadow: '0 2px 12px rgba(0,0,0,0.05)' }}>
+                <div style={{ fontSize: '2.5rem', color: 'rgba(30,132,132,0.18)', lineHeight: 1, marginBottom: 8, fontFamily: 'Georgia, serif', position: 'absolute', top: 12, left: 20 }}>"</div>
+                <p style={{ fontSize: isMobile ? '0.9rem' : '0.95rem', color: '#2A3A3A', lineHeight: 1.7, fontStyle: 'italic', paddingTop: 16 }}>{t.quote}</p>
                 <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 10 }}>
                   <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'linear-gradient(135deg, #1E8484, #3AABAB)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 700, color: 'white' }}>
                     {t.age.split('–')[0]}

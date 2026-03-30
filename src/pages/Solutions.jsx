@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import ContactModal from '../components/ContactModal'
 import Icon from '../components/Icon'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -17,6 +18,7 @@ const SOLUTIONS = [
   {
     id: 'hospitals',
     icon: 'building',
+    shortLabel: 'Hospitals',
     label: 'Hospitals & Health Systems',
     color: '#1E8484',
     tagline: 'Eliminate misidentification. Recover millions.',
@@ -38,6 +40,7 @@ const SOLUTIONS = [
   {
     id: 'insurance',
     icon: 'clipboard',
+    shortLabel: 'Insurance',
     label: 'Insurance & Payers',
     color: '#C8A04A',
     tagline: 'Stop fraud before it starts.',
@@ -59,6 +62,7 @@ const SOLUTIONS = [
   {
     id: 'emergency',
     icon: 'truck',
+    shortLabel: 'EMS',
     label: 'EMS & First Responders',
     color: '#3AABAB',
     tagline: 'Know your patient before you arrive.',
@@ -80,6 +84,7 @@ const SOLUTIONS = [
   {
     id: 'pharma',
     icon: 'pill',
+    shortLabel: 'Pharmacy',
     label: 'Pharmacy & Pharmaceutical',
     color: '#6FC8C8',
     tagline: 'Right drug. Right dose. Right patient.',
@@ -101,6 +106,7 @@ const SOLUTIONS = [
   {
     id: 'security',
     icon: 'shield-check',
+    shortLabel: 'Security',
     label: 'Hospital Security',
     color: '#155F5F',
     tagline: 'Know who is in your building.',
@@ -134,6 +140,7 @@ export default function Solutions() {
   const [activeTab, setActiveTab] = useState('hospitals')
   const [modalOpen, setModalOpen] = useState(false)
   const active = SOLUTIONS.find(s => s.id === activeTab)
+  const isMobile = useIsMobile()
 
   return (
     <div className="page" style={{ background: '#F7F5F0' }}>
@@ -141,7 +148,7 @@ export default function Solutions() {
       <Header />
 
       {/* Hero */}
-      <section style={styles.hero}>
+      <section style={{ ...styles.hero, padding: isMobile ? '72px 0 48px' : '100px 0 80px' }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: 800, margin: '0 auto' }}>
           <div className="tag tag-teal" style={{ marginBottom: 20, display: 'inline-flex' }}>
             For Healthcare Organizations
@@ -167,18 +174,18 @@ export default function Solutions() {
 
       {/* ── PHOTO STRIP ───────────────────────────────────────── */}
       <section style={{ padding: 0, overflow: 'hidden' }}>
-        <div style={{ display: 'flex', height: 280 }}>
+        <div style={{ display: 'flex', height: isMobile ? 160 : 280 }}>
           {[
-            { img: 'https://images.pexels.com/photos/20242798/pexels-photo-20242798.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Hospitals' },
-            { img: 'https://images.pexels.com/photos/7089620/pexels-photo-7089620.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Insurance' },
-            { img: 'https://images.pexels.com/photos/6754146/pexels-photo-6754146.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'First Responders' },
-            { img: 'https://images.pexels.com/photos/9629685/pexels-photo-9629685.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Pharmacy' },
-            { img: 'https://images.pexels.com/photos/10640271/pexels-photo-10640271.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Hospital Security' },
-          ].map((p, i) => (
+            { img: 'https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=600', flex: 1, label: 'Hospitals', mobileShow: true },
+            { img: 'https://images.pexels.com/photos/7089620/pexels-photo-7089620.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Insurance', mobileShow: true },
+            { img: 'https://images.pexels.com/photos/6754146/pexels-photo-6754146.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'First Responders', mobileShow: true },
+            { img: 'https://images.pexels.com/photos/9629685/pexels-photo-9629685.jpeg?auto=compress&cs=tinysrgb&w=500', flex: 1, label: 'Pharmacy', mobileShow: false },
+            { img: 'https://images.pexels.com/photos/5996980/pexels-photo-5996980.jpeg?auto=compress&cs=tinysrgb&w=600', flex: 1, label: 'Hospital Security', mobileShow: false },
+          ].filter(p => !isMobile || p.mobileShow).map((p, i) => (
             <div key={i} style={{ flex: p.flex, position: 'relative', overflow: 'hidden' }}>
               <img src={p.img} alt={p.label} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.65)' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(10,21,21,0.9) 100%)' }} />
-              <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(58,171,171,0.9)', textTransform: 'uppercase' }}>{p.label}</div>
+              <div style={{ position: 'absolute', bottom: 14, left: 0, right: 0, textAlign: 'center', fontSize: isMobile ? '0.55rem' : '0.65rem', fontWeight: 700, letterSpacing: '0.12em', color: 'rgba(58,171,171,0.9)', textTransform: 'uppercase' }}>{p.label}</div>
             </div>
           ))}
         </div>
@@ -212,22 +219,22 @@ export default function Solutions() {
           </div>
 
           {/* Tab bar */}
-          <div style={styles.tabBar}>
+          <div style={{ ...styles.tabBar, overflowX: isMobile ? 'auto' : 'visible', flexWrap: isMobile ? 'nowrap' : 'wrap', justifyContent: isMobile ? 'flex-start' : 'center', paddingBottom: isMobile ? 8 : 0 }}>
             {SOLUTIONS.map(s => (
               <button
                 key={s.id}
-                style={styles.tabBtn(activeTab === s.id, s.color)}
+                style={{ ...styles.tabBtn(activeTab === s.id, s.color), minWidth: isMobile ? 64 : 110, padding: isMobile ? '10px 8px' : '12px 16px', flexShrink: 0 }}
                 onClick={() => setActiveTab(s.id)}
               >
-                <Icon name={s.icon} size={24} color={activeTab === s.id ? s.color : 'rgba(255,255,255,0.5)'} strokeWidth={1.75} />
-                <span style={{ fontSize: '0.78rem', fontWeight: 700, lineHeight: 1.2 }}>{s.label}</span>
+                <Icon name={s.icon} size={isMobile ? 20 : 24} color={activeTab === s.id ? s.color : 'rgba(255,255,255,0.5)'} strokeWidth={1.75} />
+                <span style={{ fontSize: isMobile ? '0.65rem' : '0.78rem', fontWeight: 700, lineHeight: 1.2 }}>{isMobile ? s.shortLabel : s.label}</span>
               </button>
             ))}
           </div>
 
           {/* Active solution panel */}
           <div style={styles.solutionPanel}>
-            <div style={styles.panelHeader(active.color)}>
+            <div style={{ ...styles.panelHeader(active.color), padding: isMobile ? '20px 20px' : '28px 36px' }}>
               <div>
                 <div style={styles.panelTagline}>{active.tagline}</div>
                 <h3 style={{ ...styles.panelTitle, display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -237,9 +244,9 @@ export default function Solutions() {
               </div>
             </div>
 
-            <div style={styles.panelBody}>
+            <div style={{ ...styles.panelBody, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
               {/* Problem column */}
-              <div style={styles.problemCol}>
+              <div style={{ ...styles.problemCol, borderRight: isMobile ? 'none' : '1px solid #D4E5E5', borderBottom: isMobile ? '1px solid #D4E5E5' : 'none', padding: isMobile ? '24px 20px' : '32px 36px' }}>
                 <div style={styles.colLabel}>THE PROBLEM</div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {active.problems.map((p, i) => (
@@ -256,9 +263,9 @@ export default function Solutions() {
               </div>
 
               {/* Benefits column */}
-              <div style={styles.benefitsCol}>
+              <div style={{ ...styles.benefitsCol, padding: isMobile ? '24px 20px' : '32px 36px' }}>
                 <div style={styles.colLabel}>HOW PHIRIS HELPS</div>
-                <div style={styles.benefitsGrid}>
+                <div style={{ ...styles.benefitsGrid, gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr' }}>
                   {active.benefits.map((b, i) => (
                     <div key={i} style={styles.benefitCard(active.color)}>
                       <div style={styles.benefitIcon}><Icon name={b.icon} size={26} color={active.color} strokeWidth={1.75} /></div>
@@ -296,9 +303,10 @@ export default function Solutions() {
 
 
       {/* ── REAL SCENARIOS PHOTO ───────────────────────────── */}
-      <section style={{ background: '#F4F9F9', padding: '80px 0' }}>
+      <section style={{ background: '#F4F9F9', padding: isMobile ? '48px 0' : '80px 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0, borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 0, borderRadius: 20, overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)' }}>
+            {!isMobile && (
             <div style={{ position: 'relative', minHeight: 420 }}>
               <img
                 src="https://images.pexels.com/photos/4531306/pexels-photo-4531306.jpeg?auto=compress&cs=tinysrgb&w=800"
@@ -307,7 +315,8 @@ export default function Solutions() {
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(244,249,249,0.35) 100%)' }} />
             </div>
-            <div style={{ background: '#F4F9F9', padding: '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            )}
+            <div style={{ background: '#F4F9F9', padding: isMobile ? '36px 24px' : '56px 48px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <p style={{ color: '#1E8484', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>The difference Phiris makes</p>
               <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0D1A1A', lineHeight: 1.3, marginBottom: 20 }}>
                 "They didn't know his blood type.<br />They didn't know about the allergy.<br />He almost didn't make it."
@@ -325,6 +334,7 @@ export default function Solutions() {
       </section>
 
       {/* How it works */}
+
       <section style={{ padding: '80px 0', background: '#fff' }}>
         <div className="container" style={{ maxWidth: 900, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
@@ -466,7 +476,7 @@ const styles = {
     lineHeight: 1.5,
   },
   solutionsSection: {
-    padding: '80px 0',
+    padding: '60px 0 80px',
     background: '#F7F5F0',
   },
   tabBar: {

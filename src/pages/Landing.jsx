@@ -159,7 +159,7 @@ export default function Landing() {
 
 
       {/* ── PHOTO TRUST STRIP ─────────────────────────────── */}
-      <section style={{ background: '#0B1818', borderTop: '1px solid rgba(58,171,171,0.08)', borderBottom: '1px solid rgba(58,171,171,0.08)', padding: '0' }}>
+      <section style={{ background: '#0B1818', padding: '0' }}>
         <div style={{ display: 'flex', height: isMobile ? 160 : 300, overflow: 'hidden' }}>
           {[
             { img: 'https://images.pexels.com/photos/6754178/pexels-photo-6754178.jpeg?auto=compress&cs=tinysrgb&w=800', label: 'Patient Emergency', pos: 'center 40%' },

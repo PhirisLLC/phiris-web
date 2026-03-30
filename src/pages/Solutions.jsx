@@ -429,8 +429,6 @@ const styles = {
   crisisSection: {
     padding: '80px 0',
     background: 'white',
-    borderTop: '1px solid rgba(28,42,42,0.07)',
-    borderBottom: '1px solid rgba(28,42,42,0.07)',
   },
   sectionTitle: {
     fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',

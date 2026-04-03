@@ -187,7 +187,7 @@ export default function Auth({ mode }) {
                     name="fullName"
                     value={form.fullName}
                     onChange={handleChange}
-                    placeholder="Austin Gibson"
+                    placeholder="Jane Doe"
                     required
                     autoFocus
                   />

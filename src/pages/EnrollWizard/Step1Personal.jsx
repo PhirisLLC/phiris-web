@@ -1,5 +1,5 @@
 import React from 'react'
-import useIsMobile from '../../hooks/useIsMobile'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 const BLOOD_TYPES = ['A+', 'A−', 'B+', 'B−', 'AB+', 'AB−', 'O+', 'O−', 'Unknown']
 

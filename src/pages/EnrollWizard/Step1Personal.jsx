@@ -1,8 +1,10 @@
 import React from 'react'
+import useIsMobile from '../../hooks/useIsMobile'
 
 const BLOOD_TYPES = ['A+', 'A−', 'B+', 'B−', 'AB+', 'AB−', 'O+', 'O−', 'Unknown']
 
 export default function Step1Personal({ data, updateData, onNext }) {
+  const isMobile = useIsMobile()
   function handleSubmit(e) {
     e.preventDefault()
     onNext()
@@ -55,8 +57,8 @@ export default function Step1Personal({ data, updateData, onNext }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 16 }}>
-        <div className="form-group" style={{ gridColumn: '1 / 3' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: 16 }}>
+        <div className="form-group">
           <label className="form-label">Height</label>
           <div style={{ display: 'flex', gap: 10 }}>
             <div style={{ flex: 1, position: 'relative' }}>

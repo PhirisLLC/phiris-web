@@ -24,7 +24,7 @@ export default function Step0Consent({ onNext }) {
       </p>
 
       <div style={styles.consentBox}>
-        {CONSENTS.map(({ key, title, body }) => (
+        {CONSENTS.map(({ key, title, body, link }) => (
           <label key={key} style={styles.consentRow(checks[key])} onClick={() => toggle(key)}>
             <div style={styles.checkbox(checks[key])}>
               {checks[key] && <span style={{ color: '#fff', fontSize: '0.75rem', fontWeight: 700 }}>✓</span>}
@@ -32,6 +32,16 @@ export default function Step0Consent({ onNext }) {
             <div style={{ flex: 1 }}>
               <div style={styles.consentTitle}>{title}</div>
               <div style={styles.consentBody}>{body}</div>
+              {link && (
+                <Link
+                  to={link.to}
+                  target="_blank"
+                  onClick={e => e.stopPropagation()}
+                  style={{ display: 'inline-block', marginTop: 6, fontSize: '0.8rem', color: '#1E8484', fontWeight: 600 }}
+                >
+                  {link.label}
+                </Link>
+              )}
             </div>
           </label>
         ))}
@@ -92,7 +102,8 @@ const CONSENTS = [
   {
     key: 'terms',
     title: 'I agree to the Terms of Service and Privacy Policy',
-    body: 'I have read and agree to the Phiris Terms of Service and Privacy Policy, including how my data is collected, stored, and used. View them at phiris.com/legal.',
+    body: 'I have read and agree to the Phiris Terms of Service and Privacy Policy, including how my data is collected, stored, and used.',
+    link: { label: 'Read the full Terms & Privacy Policy →', to: '/legal' },
   },
 ]
 

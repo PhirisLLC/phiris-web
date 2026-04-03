@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { doc, updateDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase'
@@ -30,6 +30,8 @@ function compressAndEncodePhoto(file, maxSize = 400) {
   })
 }
 
+const STORAGE_KEY = 'phiris_enroll_draft'
+
 const STEPS = [
   { id: 1, label: 'Personal Info',    short: 'Personal'  },
   { id: 2, label: 'Medical Details',  short: 'Medical'   },
@@ -37,38 +39,71 @@ const STEPS = [
   { id: 4, label: 'Your Photo',       short: 'Photo'     },
 ]
 
+const DEFAULT_DATA = {
+  dateOfBirth: '',
+  bloodType: '',
+  sex: '',
+  heightFt: '',
+  heightIn: '',
+  weightLbs: '',
+  allergies: [],
+  conditions: [],
+  medications: [],
+  dnr: false,
+  organDonor: false,
+  additionalNotes: '',
+  contacts: [{ name: '', phone: '', relationship: '' }],
+  photoFile: null,
+  photoPreview: null,
+}
+
 export default function EnrollWizard() {
   const { currentUser, fetchUserProfile } = useAuth()
   const navigate = useNavigate()
   const [step, setStep] = useState(0)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [hasDraft, setHasDraft] = useState(false)
 
-  // Accumulated form data across steps
-  const [data, setData] = useState({
-    // Step 1
-    dateOfBirth: '',
-    bloodType: '',
-    sex: '',
-    heightFt: '',
-    heightIn: '',
-    weightLbs: '',
-    // Step 2
-    allergies: [],
-    conditions: [],
-    medications: [],
-    dnr: false,
-    organDonor: false,
-    additionalNotes: '',
-    // Step 3
-    contacts: [{ name: '', phone: '', relationship: '' }],
-    // Step 4
-    photoFile: null,
-    photoPreview: null,
+  // Load saved draft on mount
+  const [data, setData] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY)
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        return { ...DEFAULT_DATA, ...parsed, photoFile: null, photoPreview: null }
+      }
+    } catch {}
+    return DEFAULT_DATA
   })
 
+  // Check if a draft exists to show resume banner
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY)
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        const hasContent = parsed.dateOfBirth || parsed.bloodType || parsed.allergies?.length
+        setHasDraft(!!hasContent)
+      }
+    } catch {}
+  }, [])
+
   function updateData(patch) {
-    setData(prev => ({ ...prev, ...patch }))
+    setData(prev => {
+      const next = { ...prev, ...patch }
+      // Save to localStorage (exclude file objects)
+      try {
+        const { photoFile, photoPreview, ...saveable } = next
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saveable))
+      } catch {}
+      return next
+    })
+  }
+
+  function clearDraft() {
+    try { localStorage.removeItem(STORAGE_KEY) } catch {}
+    setHasDraft(false)
   }
 
   function handleNext() {
@@ -88,6 +123,23 @@ export default function EnrollWizard() {
         <Header />
         <main className="page-content">
           <div className="container-narrow">
+            {hasDraft && (
+              <div style={{
+                background: '#E6F4F4', border: '1.5px solid #3AABAB', borderRadius: 10,
+                padding: '12px 16px', marginBottom: 20, display: 'flex',
+                alignItems: 'center', justifyContent: 'space-between', gap: 12,
+              }}>
+                <span style={{ fontSize: '0.88rem', color: '#155F5F', fontWeight: 600 }}>
+                  You have a saved draft. Your progress will be restored after you agree below.
+                </span>
+                <button
+                  onClick={clearDraft}
+                  style={{ background: 'none', border: 'none', color: '#5A7070', fontSize: '0.8rem', cursor: 'pointer', whiteSpace: 'nowrap' }}
+                >
+                  Start fresh
+                </button>
+              </div>
+            )}
             <div style={{ marginBottom: 28 }}>
               <div className="tag tag-teal" style={{ marginBottom: 10, display: 'inline-flex' }}>
                 Before You Begin
@@ -141,6 +193,7 @@ export default function EnrollWizard() {
         consentGivenAt: serverTimestamp(),
       })
 
+      clearDraft()
       await fetchUserProfile(currentUser.uid)
       navigate('/profile')
     } catch (err) {
